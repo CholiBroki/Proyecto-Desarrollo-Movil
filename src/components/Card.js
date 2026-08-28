@@ -17,3 +17,8 @@ export default function Card({ clase, onPress }) {
         </Pressable>
     );
 }
+
+const styles = StyleSheet.create({
+    titulo: {
+        fontSize: 16, color: colors.texto}
+    })
