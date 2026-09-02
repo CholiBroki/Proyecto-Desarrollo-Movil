@@ -20,5 +20,12 @@ export default function Card({ clase, onPress }) {
 
 const styles = StyleSheet.create({
     titulo: {
-        fontSize: 16, color: colors.texto}
-    })
+        fontSize: 16,
+        color: colors.texto,
+        fontWeight: '600',
+    },
+    descripcion: {
+        fontSize: 14,
+        color: colors.textoSuave,
+    }
+})
