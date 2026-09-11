@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, {useState, useMemo } from 'react';
 import { View, Text, textInput, FlatList, ScrollView, StyleSheet, TextInput, FlatList} from 'react-native';
 
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
