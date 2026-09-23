@@ -10,13 +10,36 @@ export default function DetalleClaseScreen({ route, navigation }) {
     const insets = useSafeAreaInsets();
     const {clase} = route.params;
     const {isTable} = useResponsive();
-    const [cupos, setCupos] = useState(clase.cupos);
+    const [cuposDisponibles, setCuposDisponibles] = useState(clase.cupos);
+    const [yaReservado, setYaReservado] = useState(false);
 
     useLayoutEffect(() => {
         navigation.setOptions({
             title: clase.titulo,
+            headerStyle: {
+                height: 60 + insets.top,
+                backgroundColor: colors.superficie,
+            },
+            headerTitleStyle: {
+                marginTop: insets.top / 2,
+            },
         });
-    }, [navigation, clase.titulo]);
+    }, [navigation, insets, clase.titulo]);
+
+    const handleReservar = () => {
+        if (cuposDisponibles <= 0) {
+            Alert.alert('Sin cupos', 'Ya no quedan cupos disponibles para esta clase.');
+            return;
+        }
+
+        setCuposDisponibles((actual) => {
+            const nuevoValor = actual - 1;
+            if (nuevoValor <= 0) {
+                setYaReservado(true);
+            }
+            return nuevoValor;
+        });
+    };
 
     return(
         <View style={styles.pantalla}>
@@ -41,7 +64,7 @@ export default function DetalleClaseScreen({ route, navigation }) {
                     </View>
                     <View>
                         <View style={styles.dato}>
-                            <Text style={styles.datoValor}>{cupos}</Text>
+                            <Text style={styles.datoValor}>{cuposDisponibles}</Text>
                             <Text>Cupos</Text>
                         </View>
                     </View>
@@ -63,43 +86,18 @@ export default function DetalleClaseScreen({ route, navigation }) {
 
             </ScrollView>
 
-            <View style={styles.barra}>
-                <Text style={styles.precio}>{formatearPrecio(clase.precio)}</Text>
+            <View style={[styles.barra, {paddingBottom: insets.bottom + spacing.md, paddingTop: spacing.md}]}>
+                <Text style={styles.precio}>$ {clase.precio}</Text>
                 <Pressable
-                disabled={cupos === 0}
-                style={({ pressed }) => [
-                    styles.boton,
-                    cupos === 0 && styles.botonDeshabilitado,
-                    pressed && { opacity: 0.7 }
-                ]}
-                onPress={() => Alert.alert('Inscripción', '¿Deseas inscribirte a esta clase?', [
-                    {
-                        text: 'Cancelar',
-                        style: 'cancel'
-                        },
-                        {
-                            text: 'Inscribirme',
-                            onPress: () => {
-                                setCupos((prev) => {
-                                    const siguiente = Math.max(0, prev - 1);
-                                    if (siguiente === 0) {
-                                        Alert.alert('Sin cupos', 'Ya no quedan cupos disponibles para esta clase.');
-                                    } else {
-                                        Alert.alert('¡Inscripción exitosa!', 'Te has inscrito a la clase.');
-                                    }
-                                    return siguiente;
-                                });
-                            }
-                        }
-                    ])}
+                    style={[styles.boton, cuposDisponibles <=0 && styles.botonDeshabilitado]}
+                    onPress={handleReservar}
+                    disabled={cuposDisponibles <= 0}
                 >
-                    <Text style={styles.botonTexto}>{cupos === 0 ? 'Sin cupos' : 'Inscribirme'}</Text>
+                    <Text style={styles.botonTexto}>{cuposDisponibles <= 0 ? 'Sin cupos' : 'Reservar curso'}</Text>
                 </Pressable>
             </View>
-
         </View>
-    
-    )
+    );
 }
 
 
@@ -150,7 +148,7 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
 },
     botonDeshabilitado: {
-    backgroundColor: colors.borde,
+    backgroundColor: '#B0B0B0',
 },
     botonTexto: {
     color: '#FFFFFF',
