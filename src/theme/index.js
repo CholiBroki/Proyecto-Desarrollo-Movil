@@ -3,8 +3,11 @@ import { Platform } from 'react-native';
 export const colors = {
     fondo: '#F2F2F2',
     primario: '#5856D6',
+    primarioSuave: '#E8E7FF',
+    superficie: '#FFFFFF',
     texto: '#111827',
-    border: '#E5E7EB',
+    textoSuave: '#6B7280',
+    borde: '#E5E7EB',
 }
 
 export const spacing = {
@@ -18,6 +21,12 @@ export const spacing = {
 export const typography = {
     titulo: {fontSize: 26, fontWeight: '800', color: colors.texto},
     subtitulo: {fontSize: 18, fontWeight: '600', color: colors.texto},
+    cuerpo: {fontSize: 15},
 }
 
-export default {colors, spacing, typography}
+export const radius = {
+    md: 10,
+    lg: 16,
+}
+
+export default {colors, spacing, typography, radius}

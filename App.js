@@ -9,7 +9,7 @@ const temaNavegacion= {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: colors.primary,
+    background: colors.fondo,
     card: colors.superficie,
     primary: colors.primario,
     text: colors.texto,
