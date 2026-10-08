@@ -1,15 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
+
 import ClasesStack from './ClasesStack';
 import ReservasScreen from '../screens/ReservasScreen';
-import { View, Text, StyleSheet } from 'react-native';
-
-const PerfilScreenTemp = () => (
-  <View style={styles.center}>
-    <Text>Pantalla de Perfil (En construcción)</Text>
-  </View>
-);
+import PerfilScreen from '../screens/PerfilScreen'; // Importamos la pantalla real
 
 const Tab = createBottomTabNavigator();
 
@@ -42,17 +37,9 @@ export default function MainTabNavigator() {
       />
       <Tab.Screen 
         name="PerfilTab" 
-        component={PerfilScreenTemp} 
+        component={PerfilScreen} 
         options={{ title: 'Perfil' }} 
       />
     </Tab.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
