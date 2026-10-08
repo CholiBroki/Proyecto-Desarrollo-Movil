@@ -102,9 +102,18 @@ const ClasesScreen = ({ navigation }) => {
 };
 
 const style = StyleSheet.create({
-  pantalla: { flex: 1, backgroundColor: colors.fondo },
-  lista: { paddingTop: spacing.xs, paddingBottom: 100 },
-  tituloPantalla: { ...typography.titulo, marginBottom: spacing.lg },
+  pantalla: {
+    flex: 1,
+    backgroundColor: colors.fondo,
+  },
+  lista: {
+    paddingTop: spacing.xs,
+    paddingBottom: 100,
+  },
+  tituloPantalla: {
+    ...typography.titulo,
+    marginBottom: spacing.lg,
+  },
   buscador: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -116,9 +125,20 @@ const style = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.borde,
   },
-  input: { flex: 1, fontSize: 14, color: colors.texto, paddingVertical: 0 },
-  filtros: { paddingVertical: spacing.md, paddingBottom: spacing.lg },
-  columnas: { justifyContent: 'space-between', gap: spacing.md },
+  input: {
+    flex: 1,
+    fontSize: 14,
+    color: colors.texto,
+    paddingVertical: 0,
+  },
+  filtros: {
+    paddingVertical: spacing.md,
+    paddingBottom: spacing.lg,
+  },
+  columnas: {
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
 });
 
 export default ClasesScreen;

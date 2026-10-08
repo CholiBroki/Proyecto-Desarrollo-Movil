@@ -226,8 +226,16 @@ export default function PerfilScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.fondo, paddingHorizontal: spacing.md },
-  center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  container: {
+    flex: 1,
+    backgroundColor: colors.fondo,
+    paddingHorizontal: spacing.md,
+  },
+  center: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   tarjeta: {
     backgroundColor: colors.superficie,
     borderRadius: radius.lg,
@@ -235,12 +243,35 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.borde,
   },
-  encabezado: { alignItems: 'center', marginBottom: spacing.lg, gap: 4 },
-  tituloForm: { ...typography.titulo, fontSize: 20, textAlign: 'center' },
-  tituloPerfil: { ...typography.titulo, fontSize: 22, textAlign: 'center' },
-  subtituloForm: { fontSize: 14, color: colors.textoSuave, textAlign: 'center' },
-  grupoCampo: { marginBottom: spacing.md },
-  label: { fontSize: 13, fontWeight: '600', color: colors.texto, marginBottom: 6 },
+  encabezado: {
+    alignItems: 'center',
+    marginBottom: spacing.lg,
+    gap: 4,
+  },
+  tituloForm: {
+    ...typography.titulo,
+    fontSize: 20,
+    textAlign: 'center',
+  },
+  tituloPerfil: {
+    ...typography.titulo,
+    fontSize: 22,
+    textAlign: 'center',
+  },
+  subtituloForm: {
+    fontSize: 14,
+    color: colors.textoSuave,
+    textAlign: 'center',
+  },
+  grupoCampo: {
+    marginBottom: spacing.md,
+  },
+  label: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: colors.texto,
+    marginBottom: 6,
+  },
   input: {
     borderWidth: 1,
     borderColor: colors.borde,
@@ -264,7 +295,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: spacing.sm,
   },
-  textoBotonPrincipal: { color: '#FFFFFF', fontWeight: 'bold', fontSize: 15 },
+  textoBotonPrincipal: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontSize: 15,
+  },
   botonSecundario: {
     backgroundColor: colors.primario,
     height: 48,
@@ -275,7 +310,11 @@ const styles = StyleSheet.create({
     gap: 8,
     marginTop: spacing.sm,
   },
-  filaBotones: { flexDirection: 'row', gap: 10, marginTop: spacing.sm },
+  filaBotones: {
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: spacing.sm,
+  },
   botonBorde: {
     borderWidth: 1,
     borderColor: colors.borde,
@@ -284,7 +323,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  textoBotonBorde: { color: colors.texto, fontWeight: '600' },
-  botonBorrar: { marginTop: spacing.xl, alignItems: 'center', padding: spacing.xs },
-  textoBotonBorrar: { color: '#D9534F', fontSize: 13, textDecorationLine: 'underline' },
+  textoBotonBorde: {
+    color: colors.texto,
+    fontWeight: '600',
+  },
+  botonBorrar: {
+    marginTop: spacing.xl,
+    alignItems: 'center',
+    padding: spacing.xs,
+  },
+  textoBotonBorrar: {
+    color: '#D9534F',
+    fontSize: 13,
+    textDecorationLine: 'underline',
+  },
 });

@@ -88,7 +88,10 @@ export default function DetalleClaseScreen({ route, navigation }) {
       >
         <Image
           source={{ uri: clase.imagen }}
-          style={[styles.portada, { height: isTable ? 300 : 200 }]}
+          style={[
+            styles.portada,
+            { height: isTable ? 300 : 200 },
+          ]}
           resizeMode="cover"
         />
 
@@ -119,7 +122,13 @@ export default function DetalleClaseScreen({ route, navigation }) {
         <Text style={styles.descripcion}>{clase.descripcion}</Text>
 
         <View>
-          <Text style={{ fontWeight: '700', color: colors.texto, marginBottom: 8 }}>
+          <Text
+            style={{
+              fontWeight: '700',
+              color: colors.texto,
+              marginBottom: 8,
+            }}
+          >
             Selecciona un horario disponible:
           </Text>
           <View style={styles.contenedorHorarios}>
@@ -146,7 +155,12 @@ export default function DetalleClaseScreen({ route, navigation }) {
         </View>
       </ScrollView>
 
-      <View style={[styles.barra, { paddingBottom: insets.bottom + spacing.md, paddingTop: spacing.md }]}>
+      <View
+        style={[
+          styles.barra,
+          { paddingBottom: insets.bottom + spacing.md, paddingTop: spacing.md },
+        ]}
+      >
         <Text style={styles.precio}>$ {clase.precio}</Text>
         <Pressable
           style={[styles.boton, cuposDisponibles <= 0 && styles.botonDeshabilitado]}
@@ -163,8 +177,15 @@ export default function DetalleClaseScreen({ route, navigation }) {
 }
 
 const styles = StyleSheet.create({
-  pantalla: { flex: 1, backgroundColor: colors.fondo },
-  portada: { width: '100%', backgroundColor: colors.primarioSuave, borderRadius: radius.lg },
+  pantalla: {
+    flex: 1,
+    backgroundColor: colors.fondo,
+  },
+  portada: {
+    width: '100%',
+    backgroundColor: colors.primarioSuave,
+    borderRadius: radius.lg,
+  },
   datos: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -172,8 +193,15 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     paddingVertical: spacing.lg,
   },
-  dato: { alignItems: 'center', gap: 2 },
-  datoValor: { fontSize: 16, fontWeight: '800', color: colors.texto },
+  dato: {
+    alignItems: 'center',
+    gap: 2,
+  },
+  datoValor: {
+    fontSize: 16,
+    fontWeight: '800',
+    color: colors.texto,
+  },
   profesor: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -182,10 +210,29 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     padding: spacing.lg,
   },
-  avatar: { width: 48, height: 48, borderRadius: 24, backgroundColor: colors.borde },
-  profesorNombre: { fontSize: 15, fontWeight: '700', color: colors.texto },
-  descripcion: { ...typography.cuerpo, color: colors.textoSuave, lineHeight: 22, marginTop: spacing.sm },
-  contenedorHorarios: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 4 },
+  avatar: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: colors.borde,
+  },
+  profesorNombre: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: colors.texto,
+  },
+  descripcion: {
+    ...typography.cuerpo,
+    color: colors.textoSuave,
+    lineHeight: 22,
+    marginTop: spacing.sm,
+  },
+  contenedorHorarios: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginTop: 4,
+  },
   chipHorario: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -201,8 +248,15 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primario,
     borderColor: colors.primario,
   },
-  textoChip: { fontSize: 13, color: colors.texto, fontWeight: '500' },
-  textoChipSeleccionado: { color: '#FFFFFF', fontWeight: '700' },
+  textoChip: {
+    fontSize: 13,
+    color: colors.texto,
+    fontWeight: '500',
+  },
+  textoChipSeleccionado: {
+    color: '#FFFFFF',
+    fontWeight: '700',
+  },
   barra: {
     position: 'absolute',
     left: 0,
@@ -216,7 +270,11 @@ const styles = StyleSheet.create({
     borderTopColor: colors.borde,
     paddingHorizontal: spacing.lg,
   },
-  precio: { fontSize: 18, fontWeight: '800', color: colors.primario },
+  precio: {
+    fontSize: 18,
+    fontWeight: '800',
+    color: colors.primario,
+  },
   boton: {
     backgroundColor: colors.primario,
     paddingVertical: spacing.md,
