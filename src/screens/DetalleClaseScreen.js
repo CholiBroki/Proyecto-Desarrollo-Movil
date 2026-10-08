@@ -14,7 +14,6 @@ export default function DetalleClaseScreen({ route, navigation }) {
   const { agregarReserva } = useContext(ReservaContext);
 
   const [cuposDisponibles, setCuposDisponibles] = useState(clase.cupos);
-  // Estado para el horario seleccionado (por defecto el primero)
   const [horarioSeleccionado, setHorarioSeleccionado] = useState(
     clase.horarios && clase.horarios.length > 0 ? clase.horarios[0] : ''
   );
@@ -32,7 +31,6 @@ export default function DetalleClaseScreen({ route, navigation }) {
     });
   }, [navigation, insets, clase.titulo]);
 
-  // Proceso de confirmación y guardado
   const ejecutarReserva = () => {
     const respuesta = agregarReserva(clase, horarioSeleccionado);
 
@@ -50,7 +48,6 @@ export default function DetalleClaseScreen({ route, navigation }) {
         ]
       );
     } else {
-      // REQ 6: Bloqueo por conflicto de horario o duplicado
       Alert.alert('Conflicto de Reserva', respuesta.mensaje);
     }
   };
@@ -66,7 +63,6 @@ export default function DetalleClaseScreen({ route, navigation }) {
       return;
     }
 
-    // Alerta de confirmación previa
     Alert.alert(
       'Confirmar Reserva',
       `¿Deseas reservar el curso "${clase.titulo}" para el horario ${horarioSeleccionado}?`,
